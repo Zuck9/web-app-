@@ -53,7 +53,6 @@ Container buildProfile(double height, double width) {
     margin: const EdgeInsets.all(20),
     // Set the container's color to transparent
     child: Row(
-      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         width > 600
             ? const Padding(
