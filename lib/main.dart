@@ -71,7 +71,7 @@ Container buildProfile(double height, double width) {
               )
             : Container(),
         const SizedBox(height: 16), // Add some spacing
-        // handle for width <712.0 
+        // handle for width <712.0
         width < 600
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,32 +124,36 @@ Container buildProfile(double height, double width) {
                       Text(
                         "A passionate Software Engineer with a love for turning complex problems into elegant solutions. My journey in the world of technology began with a fascination for how software powers our modern world, and that fascination has only grown stronger over the years." +
                             ' A pre-final year CSE student at IIIT Vadodara.',
-                        style: TextStyle(fontSize: 18.0, letterSpacing: 2),overflow: TextOverflow.visible,
+                        style: TextStyle(fontSize: 18.0, letterSpacing: 2),
+                        overflow: TextOverflow.visible,
                       ),
                       // Spacer(),
-                      SizedBox(
-                          width: width * 0.25,
-                          child: TextField(
-                            controller: _textController,
-                            onSubmitted: (value) {
-                              print(_textController.text);
-                              _textController.clear();
-                            },
-                            decoration: const InputDecoration(
-                                hoverColor: Colors.greenAccent,
-                                suffixIcon: Icon(Icons.send_rounded),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 217, 209, 241),
-                                icon: Icon(
-                                  Icons.chat_bubble_outline_rounded,
-                                  color: Colors.greenAccent,
-                                ),
-                                hintText: "wanna say something....?"),
-                          )),
+                      width > 715
+                          ? SizedBox(
+                              width: width * 0.25,
+                              child: TextField(
+                                controller: _textController,
+                                onSubmitted: (value) {
+                                  print(_textController.text);
+                                  _textController.clear();
+                                },
+                                decoration: const InputDecoration(
+                                    hoverColor: Colors.greenAccent,
+                                    suffixIcon: Icon(Icons.send_rounded),
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    filled: true,
+                                    fillColor:
+                                        Color.fromARGB(255, 217, 209, 241),
+                                    icon: Icon(
+                                      Icons.chat_bubble_outline_rounded,
+                                      color: Colors.greenAccent,
+                                    ),
+                                    hintText: "wanna say something....?"),
+                              ))
+                          : Container(),
                       // ReachMeOut(),
 
                       const SizedBox(
