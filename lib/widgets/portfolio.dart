@@ -14,7 +14,8 @@ class PortfolioApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF7F9FC),
-      ),debugShowCheckedModeBanner: false,
+      ),
+      debugShowCheckedModeBanner: false,
       home: const PortfolioPage(),
     );
   }
@@ -27,7 +28,6 @@ class PortfolioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: CustomScrollView(slivers: [
         const SliverAppBar(
@@ -58,11 +58,48 @@ class PortfolioPage extends StatelessWidget {
               const SizedBox(height: 16.0),
               const ExperienceCard(),
               const SizedBox(height: 16.0),
+              width < 715
+                  ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFieldCustom(),
+                  )
+                  : Container(),
             ],
           ),
         ),
       ]),
     );
+  }
+}
+
+class TextFieldCustom extends StatelessWidget {
+  const TextFieldCustom({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+        // controller: _textController,
+        onSubmitted: (value) {
+          // print(_textController.text);
+          // _textController.clear();
+        },
+        decoration: const InputDecoration(
+            hoverColor: Colors.greenAccent,
+            suffixIcon: Icon(Icons.send_rounded),
+            border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius:
+                    BorderRadius.all(Radius.circular(10))),
+            filled: true,
+            fillColor: Color.fromARGB(255, 217, 209, 241),
+            icon: Icon(
+              Icons.chat_bubble_outline_rounded,
+              color: Colors.greenAccent,
+            ),
+            hintText: "wanna say something....?"),
+      );
   }
 }
 
@@ -250,7 +287,8 @@ class CourseworkCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      child: Card(elevation: 5,
+      child: Card(
+        elevation: 5,
         margin: const EdgeInsets.all(16.0),
         child: Padding(
           padding: const EdgeInsets.all(16.0),

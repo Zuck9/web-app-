@@ -101,7 +101,7 @@ Container buildProfile(double height, double width) {
                 ],
               )
             : Builder(builder: (context) {
-                print(width - 60 * 0.30 - 302);
+                // print(width - 60 * 0.30 - 302);
                 print(width);
                 return Container(
                   width: width - 60 * 0.30 - 302,
@@ -120,44 +120,23 @@ Container buildProfile(double height, double width) {
                             color: Theme.of(context).primaryColorDark),
                         textAlign: TextAlign.justify,
                       ),
+                      /*"A passionate Software Engineer with a love for turning complex problems into elegant solutions. My journey in the world of technology began with a fascination for how software powers our modern world, and that fascination has only grown stronger over the years." +
+                            ' A pre-final year CSE student at IIIT Vadodara.'*/
                       Text(
-                        "A passionate Software Engineer with a love for turning complex problems into elegant solutions. My journey in the world of technology began with a fascination for how software powers our modern world, and that fascination has only grown stronger over the years." +
-                            ' A pre-final year CSE student at IIIT Vadodara.',
-                        style: TextStyle(fontSize: 18.0, letterSpacing: 2),
+                        "Flutter Developer | Competitive Programmer",
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            letterSpacing: 2,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 70, 233, 75)),
                         overflow: TextOverflow.visible,
                       ),
                       // Spacer(),
                       width > 715
                           ? SizedBox(
                               width: width * 0.25,
-                              child: TextField(
-                                controller: _textController,
-                                onSubmitted: (value) {
-                                  print(_textController.text);
-                                  _textController.clear();
-                                },
-                                decoration: const InputDecoration(
-                                    hoverColor: Colors.greenAccent,
-                                    suffixIcon: Icon(Icons.send_rounded),
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10))),
-                                    filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 217, 209, 241),
-                                    icon: Icon(
-                                      Icons.chat_bubble_outline_rounded,
-                                      color: Colors.greenAccent,
-                                    ),
-                                    hintText: "wanna say something....?"),
-                              ))
+                              child: TextFieldCustom())
                           : Container(),
-                      // ReachMeOut(),
-
-                      const SizedBox(
-                        height: 10,
-                      )
                     ],
                   ),
                 );
